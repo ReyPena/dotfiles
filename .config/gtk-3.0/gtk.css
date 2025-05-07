@@ -1,0 +1,5 @@
+window { border-radius: 0px; }
+
+.titlebar, .titlebar .background {
+    border-radius: 0px;
+}
