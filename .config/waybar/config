@@ -1,0 +1,107 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    
+    "modules-left": ["custom/launcher", "hyprland/workspaces"],
+    "hyprland/workspaces": {
+         "disable-scroll": true,
+         "sort-by-name": true,
+         "format": " {icon} ",
+         "format-icons": {
+             "default": "",
+         },
+	 "persistent-workspaces": {
+	 	"*": 5
+	 }
+    },
+    "custom/launcher": {
+    	"tooltip": false,
+	"format": "",
+	"on-click": "fuzzel"
+    },
+
+    "modules-center": ["clock"],
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d/%m/%Y}",
+        "format": "{:%I:%M %p}"
+    },
+
+    "modules-right": ["pulseaudio", "backlight", "network", "bluetooth", "battery", "custom/info", "custom/lock", "custom/power"],
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+	"format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% 󰂄",
+        "format-alt": "{icon}",
+	"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "  {icon} {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", " ", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "bluetooth": {
+        "format-disabled": "",
+        "format-off": "",
+        "interval": 30,
+        "on-click": "blueman-manager",
+        "format-no-controller": "",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+    "network": {
+    	"format": "{ifname}",
+    	"format-wifi": "{signalStrength}% ",
+    	"format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    	"format-disconnected": "󰖪", //An empty format will hide the module.
+    	"tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    	"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    	"tooltip-format-ethernet": "{ifname} ",
+    	"tooltip-format-disconnected": "Disconnected",
+	"on-click": "kitty -e nmtui",
+    	"max-length": 50
+    },
+    "custom/info": {
+    	"tooltip": false,
+	"on-click": "hyprsysteminfo",
+	"format": ""
+    },
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "hyprlock",
+        "format": "",
+    },
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wlogout",
+        "format": ""
+    }
+}
