@@ -1,8 +1,7 @@
 background_opacity 0.9
 
-startup_session launch.conf
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# Catppuccin-Macchiato
 include current-theme.conf
 # END_KITTY_THEME
