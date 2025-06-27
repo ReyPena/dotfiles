@@ -1,0 +1,19 @@
+{
+  "name": "karabiner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsx index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "karabiner.ts": "^1.31.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
